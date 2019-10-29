@@ -1,3 +1,70 @@
 // Place all the styles related to the Games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.col-10 {
+  -ms-flex: 0 0 10%;
+  flex: 0 0 10%;
+  max-width: 10%;
+}
+.col-20 {
+  -ms-flex: 0 0 20%;
+  flex: 0 0 20%;
+  max-width: 20%;
+}
+.col-33 {
+  -ms-flex: 0 0 33.333333%;
+  flex: 0 0 33.333333%;
+  width: 33.333333%;
+}
+.col-40 {
+  -ms-flex: 0 0 40%;
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+.col-12 {
+  -ms-flex: 0 0 12%;
+  flex: 0 0 12%;
+  max-width: 12%;
+}
+.align-items-center {
+  -ms-flex-align: center !important;
+  align-items: center !important;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.center{
+  background: #2E2F30;
+  color: #fff;
+}
+.both-side{
+  background: #ccc;
+}
+body{
+    height: 100vh;
+}
+body{
+  position: relative;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  height: 15vh;
+  background: #ccc;
+}
+.checkout{
+  display: flex;
+  justify-content: flex-end;
+}
