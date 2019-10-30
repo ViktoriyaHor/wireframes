@@ -1,67 +1,137 @@
 
-.row {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+// Place all the styles related to the Games controller here.
+// They will automatically be included in application.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+$green_color: rgba(71, 193, 142, 1);
+$global_font: 'Roboto';
+
+.container {
+  /* 1 */
+  box-sizing: content-box;
+  max-width: 1200px;
+  margin-left: 0;
+  padding-left: 15px;
+  padding-right: 200px;
+  font-family: $global_font !important;
+  padding: 0 2% !important;
+
+  hr { border-top: 2px solid #e5e5e5 !important; }
 }
-.col-10 {
-  -ms-flex: 0 0 10%;
-  flex: 0 0 10%;
-  max-width: 10%;
+/* Phone landscape and bigger */
+@media (min-width: 640px) {
+  .container {
+    padding-left: 30px;
+    padding-right: 150px;
+  }
 }
-.col-20 {
-  -ms-flex: 0 0 20%;
-  flex: 0 0 20%;
-  max-width: 20%;
+/* Tablet landscape and bigger */
+@media (min-width: 960px) {
+  .container {
+    padding-left: 40px;
+    padding-right: 150px;
+  }
 }
-.col-33 {
-  -ms-flex: 0 0 33.333333%;
-  flex: 0 0 33.333333%;
-  width: 33.333333%;
+
+.col-100 {
+  width: 100%;
+
+  .col-10 {
+    -ms-flex: 0 0 10%;
+    flex: 0 0 10%;
+    max-width: 10%;
+  }
+
+  .col-20 {
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+
+  .col-33 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    width: 33.333333%;
+  }
+
+  .col-40 {
+    -ms-flex: 0 0 40%;
+    flex: 0 0 40%;
+    max-width: 40%;
+  }
+
+  .col-12 {
+    -ms-flex: 0 0 12%;
+    flex: 0 0 12%;
+    max-width: 12%;
+  }
+
+  .col-margin {
+    width: 5px !important;
+  }
+
+  div {
+    padding: 0 !important;
+  }
+
+  .col-10, .col-20, .col-12 {
+    .pad_r { padding-right: 20px !important; }
+  }
+
+  .minute_cost {
+    color: $green_color;
+    padding: 60px 0 !important;
+  }
+
+  .minutes_data {
+    display: inline-block;
+    border-radius: 0;
+    color: white !important;
+    background-color: rgba(85, 85, 85, 1);
+    border: 1px solid #e5e5e5;
+    vertical-align: middle;
+    font-size: 0.875rem;
+    line-height: 38px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .min_btn, .pls_btn, .minutes_data {
+    padding: 0 !important;
+    border-radius: 0 !important;
+    width: 45px !important;
+    font-weight: 700 !important;
+  }
+
+  img {
+      max-width: 100%;
+  }
 }
-.col-40 {
-  -ms-flex: 0 0 40%;
-  flex: 0 0 40%;
-  max-width: 40%;
+
+.proceed_btn {
+  color: white !important;
+  background-color: $green_color  !important;
+  border-radius: 5px !important;
+  font-weight: 700 !important;
 }
-.col-12 {
-  -ms-flex: 0 0 12%;
-  flex: 0 0 12%;
-  max-width: 12%;
+
+.min_total {
+  padding: 10px 0;
+  margin-right: 20px;
+  font-weight: 700 !important;
 }
-.align-items-center {
-  -ms-flex-align: center !important;
-  align-items: center !important;
+
+.primary_txt {
+  font-weight: 700 !important;
+  font-size: 15px;
 }
-img {
-  max-width: 100%;
-  height: auto;
+
+.secondary_text {
+  font-size: 12px;
+  color: #999;
 }
-.center{
-  background: #2E2F30;
-  color: #fff;
-}
-.both-side{
-  background: #ccc;
-}
-body{
-  height: 100vh;
-}
-body{
-  position: relative;
-}
-#footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 90%;
-  height: 15vh;
-  background: #ccc;
-}
-.checkout{
-  display: flex;
-  justify-content: flex-end;
-}
+
+.txt_l { text-align: left; }
+.txt_r { text-align: right; }
+.txt_c { text-align: center; }

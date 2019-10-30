@@ -1,36 +1,63 @@
-h1 Games
-.uk-container
-.row
+.container.uk-flex-center.uk-width-expand.uk-margin-top
+  p#notice.uk-container
+    = notice
+  h1
+    | Games
+  hr
   - @games.each do |game|
-    .col-10
-      .row.align-items-center
-        .col-40
-          img src="#{asset_path(game.home_team_logo)}"/
-        .col-40
-          img src="#{asset_path(game.away_team_logo)}"/
-    .col-20
-      p= game.title
-      p= game.game_time.strftime("%B %d, %Y %H:%M")
-    .col-10
-      p #{game.reach} M
-      p Reach
-    .col-10
-      p= game.league
-      p League
-    .col-10
-      p= game.channel
-      p Channel
-    .col-20
-      p #{game.price_per_minute} /min
-    .col-20
-      .row.align-items-center
-        .col-33.both-side.remove
-          p -
-        .col-33.center
-          p= game.minutes_booked
-        .col-33.both-side.add
-          p +
-#footer
-  .checkout
-    p Add minutes to your campaign
-    button type="button"  Proceed to checkout
+    .col-100.uk-grid.uk-flex.uk-flex-middle
+      .col-10
+        .uk-flex.uk-flex-middle
+          .col-40
+            img src="#{asset_path(game.home_team_logo)}"/
+          .col-40
+            img src="#{asset_path(game.away_team_logo)}"/
+
+      .col-margin
+      .col-20
+          .g_title.primary_txt
+            = game.title
+          .secondary_text
+            = game.game_time.strftime("%B %d, %Y %H:%M")
+      .col-margin
+      .col-10
+          .primary_txt
+            = game.reach
+            |  M
+          .secondary_text
+            |  Reach
+      .col-margin
+      .col-10
+          .primary_txt
+            = game.league
+          .secondary_text
+            |  League
+      .col-margin
+      .col-10
+          .primary_txt
+            = game.channel
+          .secondary_text
+            |  Channel
+      .col-margin
+      .col-20.txt_r
+        .minute_cost.primary_txt.pad_r
+          = number_to_currency(game.price_per_minute)
+          |  /min
+      .col-margin
+      .col-12.uk-button-group.txt_c
+          button.min_btn.uk-width-1-3.uk-button.uk-button-default.fl
+            |  -
+          .minutes_data.uk-width-1-3.float
+            = game.minutes_booked
+          button.pls_btn.uk-width-1-3.uk-button.uk-button-default.fl
+            |  +
+      .col-margin
+    hr
+  nav.uk-navbar-container
+    .uk-navbar-right
+      ul.uk-navbar-nav
+        li.min_total
+          | Add minutes to your campaign
+        li
+          button.proceed_btn.uk-button.uk-button-default
+            | Proceed to checkout

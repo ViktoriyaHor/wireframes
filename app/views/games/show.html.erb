@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @game.title %>
+</p>
+
+<p>
+  <strong>Game time:</strong>
+  <%= @game.game_time %>
+</p>
+
+<p>
+  <strong>Home team logo:</strong>
+  <%= @game.home_team_logo %>
+</p>
+
+<p>
+  <strong>Away team logo:</strong>
+  <%= @game.away_team_logo %>
+</p>
+
+<p>
+  <strong>Reach:</strong>
+  <%= @game.reach %>
+</p>
+
+<p>
+  <strong>League:</strong>
+  <%= @game.league %>
+</p>
+
+<p>
+  <strong>Channel:</strong>
+  <%= @game.channel %>
+</p>
+
+<p>
+  <strong>Price per minute:</strong>
+  <%= @game.price_per_minute %>
+</p>
+
+<p>
+  <strong>Minutes booked:</strong>
+  <%= @game.minutes_booked %>
+</p>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
