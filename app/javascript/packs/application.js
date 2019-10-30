@@ -15,6 +15,18 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-console.log('Hello World from Webpacker')
+require("@rails/ujs").start()
+require("turbolinks").start()
+require("@rails/activestorage").start()
+require("channels")
 
-import "controllers"
+import '../stylesheets/application'
+import './bootstrap_custom.js'
+
+import { Controller } from "stimulus"
+export default class extends Controller {
+  static targets = [ "output" ]
+  connect() {
+    this.outputTarget.textContent = 'Hello, Stimulus!'
+  }
+}

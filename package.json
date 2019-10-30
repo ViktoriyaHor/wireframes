@@ -2,8 +2,16 @@
   "name": "wireframes",
   "private": true,
   "dependencies": {
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "^4.0.7",
-    "stimulus": "^1.1.1"
+    "bootstrap": "4.3.1",
+    "channels": "^0.0.4",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0",
+    "stimulus": "^1.1.1",
+    "turbolinks": "^5.2.0",
+    "webpack": "^4.0.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.9.0"
