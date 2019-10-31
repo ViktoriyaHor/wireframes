@@ -4,7 +4,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-$green_color: rgba(71, 193, 142, 1);
+$green_color: #47c18e;
+$gray_color: #eee;
 $global_font: 'Roboto';
 
 .container {
@@ -17,7 +18,7 @@ $global_font: 'Roboto';
   font-family: $global_font !important;
   padding: 0 2% !important;
 
-  hr { border-top: 2px solid #e5e5e5 !important; }
+  hr { border-top: 2px solid $gray_color !important; }
 }
 /* Phone landscape and bigger */
 @media (min-width: 640px) {
@@ -89,7 +90,7 @@ $global_font: 'Roboto';
     border-radius: 0;
     color: white !important;
     background-color: rgba(85, 85, 85, 1);
-    border: 1px solid #e5e5e5;
+    border: 1px solid $gray_color;
     vertical-align: middle;
     font-size: 0.875rem;
     line-height: 38px;
@@ -100,7 +101,7 @@ $global_font: 'Roboto';
   .min_btn, .pls_btn, .minutes_data {
     padding: 0 !important;
     border-radius: 0 !important;
-    width: 45px !important;
+    width: 350px !important;
     font-weight: 700 !important;
   }
 
@@ -131,7 +132,25 @@ $global_font: 'Roboto';
   font-size: 12px;
   color: #999;
 }
+.bg{
+  background: $gray_color;
+}
 
 .txt_l { text-align: left; }
 .txt_r { text-align: right; }
 .txt_c { text-align: center; }
+
+.visible{
+  display: block;
+}
+.hidden{
+  display: none;
+}
+
+.proceed_btn_inactive{
+  color: white !important;
+  background-color: $green_color  !important;
+  border-radius: 5px !important;
+  font-weight: 700 !important;
+  opacity: 0.5;
+}

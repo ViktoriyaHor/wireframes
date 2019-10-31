@@ -23,10 +23,8 @@ require("channels")
 import '../stylesheets/application'
 import './bootstrap_custom.js'
 
-import { Controller } from "stimulus"
-export default class extends Controller {
-  static targets = [ "output" ]
-  connect() {
-    this.outputTarget.textContent = 'Hello, Stimulus!'
-  }
-}
+import { Application } from "stimulus"
+import { definitionsFromContext } from "stimulus/webpack-helpers"
+const application = Application.start()
+const context = require.context("controllers", true, /.js$/)
+application.load(definitionsFromContext(context))
