@@ -1,9 +1,9 @@
-.container.uk-flex-center.uk-width-expand.uk-margin-top data-controller="outer" data-action="inner-connected->outer#thingConnected"
+.container.uk-flex-center.uk-width-expand.uk-margin-top data-controller="outer" data-action="games-connected->outer#thingConnected"
   h1
     | Games
   hr
   - @games.each do |game|
-    .container data-target="outer.thing" data-controller="games"
+    .container data-target="outer.thing" data-controller="games" data-games-count="#{game.minutes_booked}" data-games-url= "#{game_path(game)}" data-outer-count="#{game.minutes_booked}" data-outer-price="#{game.price_per_minute}"
       .col-100.uk-grid.uk-flex.uk-flex-middle
         .col-10
           .uk-flex.uk-flex-middle
@@ -11,7 +11,6 @@
               img src="#{asset_path(game.home_team_logo)}"/
             .col-40
               img src="#{asset_path(game.away_team_logo)}"/
-
         .col-margin
         .col-20
           .g_title.primary_txt
@@ -52,13 +51,13 @@
             |  +
         .col-margin
       hr
-  .container.uk-flex.uk-flex-left.uk-margin-small.uk-flex-middle.uk-padding.bg data-target="games.not_min"
+  .container.uk-flex.uk-flex-left.uk-margin-small.uk-flex-middle.uk-padding.bg data-target="outer.not_min"
     p.uk-margin-small-right.uk-margin-remove
       | Add minutes to your campaign
     button.proceed_btn_inactive.uk-button.uk-button-default.uk-margin.uk-margin-left
       | Proceed to checkout
 
-  .container.uk-flex.uk-flex-left.uk-margin-small.uk-flex-middle.uk-padding.bg.hidden data-target="games.have_min"
+  .container.uk-flex.uk-flex-left.uk-margin-small.uk-flex-middle.uk-padding.bg.hidden data-target="outer.have_min"
     p.uk-margin-small-right.uk-margin-remove
     button.proceed_btn.uk-button.uk-button-default.uk-margin.uk-margin-left
       | Proceed to checkout
