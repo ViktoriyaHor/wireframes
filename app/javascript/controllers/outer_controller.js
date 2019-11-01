@@ -21,16 +21,20 @@ export default class extends Controller {
     checkout() {
         const formData = new FormData();
         formData.append("game[minutes_booked]", this.min);
-        console.log(this.data.get(url))
-        // fetch(this.data.get(this.url), {
-        //     body: formData,
-        //     method: 'PATCH',
-        //     dataType: 'script',
-        //     credentials: "include",
-        //     headers: {
-        //         "X-CSRF-Token": getMetaValue("csrf-token")
-        //     },
-        // }).then(function(response) {
-        // })
+        console.log(this.url);
+        fetch(this.url, {
+            body: formData,
+            method: 'PATCH',
+            dataType: 'script',
+            credentials: "include",
+            headers: {
+                "X-CSRF-Token": getMetaValue("csrf-token")
+            },
+        }).then(function(response) {
+        })
     }
+}
+function getMetaValue(name) {
+    const element = document.head.querySelector(`meta[name="${name}"]`)
+    return element.getAttribute("content")
 }

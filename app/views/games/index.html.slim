@@ -3,7 +3,7 @@
     | Games
   hr
   - @games.each do |game|
-    .container data-controller="games" data-games-count="#{game.minutes_booked}" data-games-url= "#{game_path(game)}" data-outer-count="#{game.minutes_booked}" data-outer-price="#{game.price_per_minute}"
+    .container data-controller="games" data-games-count="#{game.minutes_booked}" data-games-url= "#{game_path(game)}"
       .col-100.uk-grid.uk-flex.uk-flex-middle
         .col-10
           .uk-flex.uk-flex-middle
@@ -37,8 +37,8 @@
           .secondary_text
             |  Channel
         .col-margin
-        .col-20.txt_r.uk-flex.uk-flex-end
-          .minute_cost.primary_txt.pad_r.uk-flex.uk-flex-end
+        .col-20.txt_r
+          .minute_cost.primary_txt.uk-flex.uk-flex-right
             | $
             .price data-target="games.price"
               = game.price_per_minute
