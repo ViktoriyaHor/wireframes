@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-    static targets = [ "minute" ];
+    static targets = [ "minute", "price"];
 
     initialize() {
         this.count = this.minuteTarget.textContent;
@@ -12,18 +12,12 @@ export default class extends Controller {
         if (this.count > 0) {
             this.count--;
         }
-        const formData = new FormData();
-        formData.append("game[minutes_booked]", this.minuteTarget.textContent);
-        fetch(this.data.get("url"), {
-            body: formData,
-            method: 'PATCH',
-            dataType: 'script',
-            credentials: "include",
-            headers: {
-                    "X-CSRF-Token": getMetaValue("csrf-token")
-                     },
-        }).then(function(response) {
-        })
+        const min = this.minuteTarget.textContent;
+        const price = this.priceTarget.textContent;
+        const url = this.data.get("url");
+        this.OuterController.initialize(min, price, url);
+        this.OuterController.reload();
+
     }
       // if (total_minute == 0) {
       //   this.not_minTarget.style.visibility = "visible";
@@ -33,10 +27,11 @@ export default class extends Controller {
     plsMinute(event) {
         event.preventDefault();
         this.count++;
-          // this.not_minTarget.style.visibility = "visible";
-          // this.have_minTarget.style.visibility = "hidden"
-        this.OuterController.reload(event.target)
-
+        const min = this.minuteTarget.textContent;
+        const price = this.priceTarget.textContent;
+        const url = this.data.get("url");
+        this.OuterController.initialize(min, price, url);
+        this.OuterController.reload();
     }
     get OuterController() {
         return this.application.getControllerForElementAndIdentifier(this.element.parentElement, "outer");

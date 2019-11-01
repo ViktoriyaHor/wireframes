@@ -2,14 +2,35 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
     static targets = ["not_min", "have_min"];
-
-    reload(d) {
-        console.log(d)
-        // whenever click is do: this.application.controllers['games'].handler_name_here()
-        // document.addEventListener("games-connected", (e) => {
-        //     console.log("update")});
-        // // console.log("update");
-        // this.not_minTarget.style.visibility = "hidden";
+    initialize(min, price, url) {
+        this.min = min;
+        this.price = price;
+        this.url = url;
     }
-
+    reload() {
+        if (this.min > 0){
+            this.not_minTarget.style.visibility = "hidden";
+            this.have_minTarget.style.visibility = "visible";
+            this.have_minTarget.firstElementChild.textContent = `${this.min}min added · total $${this.min*this.price}`
+        }
+        else {
+            this.not_minTarget.style.visibility = "visible";
+            this.have_minTarget.style.visibility = "hidden";
+        }
+    }
+    checkout() {
+        const formData = new FormData();
+        formData.append("game[minutes_booked]", this.min);
+        console.log(this.data.get(url))
+        // fetch(this.data.get(this.url), {
+        //     body: formData,
+        //     method: 'PATCH',
+        //     dataType: 'script',
+        //     credentials: "include",
+        //     headers: {
+        //         "X-CSRF-Token": getMetaValue("csrf-token")
+        //     },
+        // }).then(function(response) {
+        // })
+    }
 }

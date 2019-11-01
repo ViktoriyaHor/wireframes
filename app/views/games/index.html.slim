@@ -37,9 +37,11 @@
           .secondary_text
             |  Channel
         .col-margin
-        .col-20.txt_r
-          .minute_cost.primary_txt.pad_r
-            = number_to_currency(game.price_per_minute)
+        .col-20.txt_r.uk-flex.uk-flex-end
+          .minute_cost.primary_txt.pad_r.uk-flex.uk-flex-end
+            | $
+            .price data-target="games.price"
+              = game.price_per_minute
             |  /min
         .col-margin
         .col-12.uk-button-group.txt_c
@@ -51,13 +53,13 @@
             |  +
         .col-margin
       hr
-  .container.uk-flex.uk-flex-left.uk-margin-small.uk-flex-middle.uk-padding.bg data-target="outer.not_min"
+  .container.uk-flex.uk-flex-left.uk-margin-small.uk-flex-middle.uk-padding.bg style="visibility:visible" data-target="outer.not_min"
     p.uk-margin-small-right.uk-margin-remove
       | Add minutes to your campaign
     button.proceed_btn_inactive.uk-button.uk-button-default.uk-margin.uk-margin-left
       | Proceed to checkout
 
-  .container.uk-flex.uk-flex-left.uk-margin-small.uk-flex-middle.uk-padding.bg.hidden data-target="outer.have_min"
+  .container.uk-flex.uk-flex-left.uk-margin-small.uk-flex-middle.uk-padding.bg style="visibility:hidden" data-target="outer.have_min" data-action="outer#checkout"
     p.uk-margin-small-right.uk-margin-remove
-    button.proceed_btn.uk-button.uk-button-default.uk-margin.uk-margin-left
+    button.proceed_btn.uk-button.uk-button-default.uk-margin.uk-margin-left data-action="outer#checkout"
       | Proceed to checkout
