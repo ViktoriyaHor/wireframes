@@ -6,30 +6,23 @@ export default class extends Controller {
     initialize() {
         this.count = this.minuteTarget.textContent;
     }
-    connect() {
-        const event = document.createEvent("CustomEvent")
-        event.initCustomEvent("games-connected", true, true, null)
-        this.element.dispatchEvent(event);
-        console.log(event);
-    }
-    minMinute(event) {
-      event.preventDefault();
-      if (this.count > 0) {
-        this.count--;
-        // console.log(this.count);
-      }
-      let formData = new FormData();
-      formData.append("game[minutes_booked]", this.minuteTarget.textContent);
-      fetch(this.data.get("url"), {
-        body: formData,
-        method: 'PATCH',
-        dataType: 'script',
-        credentials: "include",
-        headers: {
-                "X-CSRF-Token": getMetaValue("csrf-token")
-                 },
-      }).then(function(response) {
 
+    minMinute(event) {
+        event.preventDefault();
+        if (this.count > 0) {
+            this.count--;
+        }
+        const formData = new FormData();
+        formData.append("game[minutes_booked]", this.minuteTarget.textContent);
+        fetch(this.data.get("url"), {
+            body: formData,
+            method: 'PATCH',
+            dataType: 'script',
+            credentials: "include",
+            headers: {
+                    "X-CSRF-Token": getMetaValue("csrf-token")
+                     },
+        }).then(function(response) {
         })
     }
       // if (total_minute == 0) {
@@ -37,23 +30,26 @@ export default class extends Controller {
       //   this.have_minTarget.style.visibility = "hidden";
       // }
 
-      plsMinute(event) {
-          event.preventDefault();
-          this.count++;
+    plsMinute(event) {
+        event.preventDefault();
+        this.count++;
           // this.not_minTarget.style.visibility = "visible";
-          // this.have_minTarget.style.visibility = "hidden";
-          // console.log(this.count);
+          // this.have_minTarget.style.visibility = "hidden"
+        this.OuterController.reload(event.target)
 
-      }
-      get count() {
+    }
+    get OuterController() {
+        return this.application.getControllerForElementAndIdentifier(this.element.parentElement, "outer");
+    }
+    get count() {
         return this.data.get("count");
-      }
-
-      set count(value) {
+    }
+    set count(value) {
         this.data.set("count", value);
         this.minuteTarget.textContent = this.count;
-      }
+    }
 }
+
 function getMetaValue(name) {
     const element = document.head.querySelector(`meta[name="${name}"]`)
     return element.getAttribute("content")

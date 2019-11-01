@@ -1,9 +1,9 @@
-.container.uk-flex-center.uk-width-expand.uk-margin-top data-controller="outer" data-action="games-connected->outer#thingConnected"
+.container.uk-flex-center.uk-width-expand.uk-margin-top data-controller="outer" data-action="outer#reload"
   h1
     | Games
   hr
   - @games.each do |game|
-    .container data-target="outer.thing" data-controller="games" data-games-count="#{game.minutes_booked}" data-games-url= "#{game_path(game)}" data-outer-count="#{game.minutes_booked}" data-outer-price="#{game.price_per_minute}"
+    .container data-controller="games" data-games-count="#{game.minutes_booked}" data-games-url= "#{game_path(game)}" data-outer-count="#{game.minutes_booked}" data-outer-price="#{game.price_per_minute}"
       .col-100.uk-grid.uk-flex.uk-flex-middle
         .col-10
           .uk-flex.uk-flex-middle

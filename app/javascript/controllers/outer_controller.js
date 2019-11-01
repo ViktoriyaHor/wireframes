@@ -1,16 +1,15 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-    static targets = [ "thing", "not_min", "have_min"];
+    static targets = ["not_min", "have_min"];
 
-    connect(){
-        document.addEventListener("games-connected", (e) => {
-            console.log("update");
-});
-    }
-    thingConnected(event) {
-        console.log(event);
-        this.not_minTarget.style.visibility = "hidden";
+    reload(d) {
+        console.log(d)
+        // whenever click is do: this.application.controllers['games'].handler_name_here()
+        // document.addEventListener("games-connected", (e) => {
+        //     console.log("update")});
+        // // console.log("update");
+        // this.not_minTarget.style.visibility = "hidden";
     }
 
 }
